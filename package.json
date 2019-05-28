@@ -33,6 +33,7 @@
     "babel-runtime": "^6.26.0",
     "bootstrap-hot-loader": "^3.19.3",
     "express": "~4.15.0",
+    "body-parser": "^1.19.0",
     "i18next": "^11.6.0",
     "prop-types": "~15.6.0",
     "react": "16.8.0",
@@ -52,7 +53,8 @@
     "puppeteer": "^1.1.0",
     "react-testing-library": "^6.0.2",
     "yoshi": "^4.1.0",
-    "yoshi-style-dependencies": "^4.1.0"
+    "yoshi-style-dependencies": "^4.1.0",
+    "jest": "24.8.0"
   },
   "lint-staged": {
     "*.{js,scss,less}": "yoshi lint"
