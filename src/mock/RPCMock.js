@@ -21,7 +21,9 @@ const addCommentsServiceStub = function () {
     })
     .resolve(TEST_COMMENTS);
   
-  commentsService.add.when(siteId => {
+  commentsService.add.when((...args) => {
+      const [siteId, comment] = args;
+      TEST_COMMENTS.push(comment);
       return siteId === TEST_ID;
     })
     .resolve('');
