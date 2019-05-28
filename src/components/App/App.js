@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {translate} from 'react-i18next';
-import CommentForm from "../CommentForm/CommentForm";
+import React, { useState, useEffect } from 'react';
+import { translate } from 'react-i18next';
+import CommentForm from '../CommentForm/CommentForm';
 import axios from 'axios';
-import CommentsList from "../CommentsList/CommentsList";
+import CommentsList from '../CommentsList/CommentsList';
 
 function App() {
   const [fetchCount, setFetchCount] = useState(0);
@@ -12,21 +12,21 @@ function App() {
     fetchComments();
   });
 
-  const onAddComment = async (comment) => {
+  const onAddComment = async comment => {
     console.log('onAddComment', comment);
     await axios.post('/comments', comment);
     setFetchCount(fetchCount + 1);
   };
 
   const fetchComments = async () => {
-    const {data: comments} = await axios.get('/comments');
-    setComments(comments);
+    const { data: savedComments } = await axios.get('/comments');
+    setComments(savedComments);
   };
 
   return (
     <div>
-      <CommentForm onAddComment={onAddComment}/>
-      <CommentsList comments={comments}/>
+      <CommentForm onAddComment={onAddComment} />
+      <CommentsList comments={comments} />
     </div>
   );
 }

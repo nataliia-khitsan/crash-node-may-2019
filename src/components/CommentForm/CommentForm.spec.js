@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from 'react-testing-library';
-import CommentForm from "./CommentForm";
+import CommentForm from './CommentForm';
 
 it('should pass comment object when Add button click', () => {
   const spy = jest.fn();
@@ -8,9 +8,7 @@ it('should pass comment object when Add button click', () => {
   const authorName = 'Marilyn Monroe';
   const commentText = 'Bonjour';
 
-  const { getByTestId } = render(
-    <CommentForm onAddComment={spy} />,
-  );
+  const { getByTestId } = render(<CommentForm onAddComment={spy} />);
 
   const author = getByTestId('author-name');
   const text = getByTestId('comment-text');
@@ -25,5 +23,5 @@ it('should pass comment object when Add button click', () => {
   });
 
   fireEvent.click(addButton);
-  expect(spy).toHaveBeenCalledWith({author: authorName, text: commentText});
+  expect(spy).toHaveBeenCalledWith({ author: authorName, text: commentText });
 });
