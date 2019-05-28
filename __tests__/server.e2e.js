@@ -20,7 +20,6 @@ describe('When rendering', () => {
   });
   
   it('should post comments', async () => {
-    
     const url = app.getUrl('/comments');
     let newComment = {text: 'Kukuruku', author: 'Lena'};
     const post = await axios.post(url, newComment);
