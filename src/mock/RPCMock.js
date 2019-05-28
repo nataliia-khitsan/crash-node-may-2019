@@ -31,5 +31,6 @@ const addCommentsServiceStub = function () {
 
 module.exports = {
   addCommentsServiceStub,
-  TEST_COMMENTS
-}
+  TEST_COMMENTS,
+  TEST_ID
+};
