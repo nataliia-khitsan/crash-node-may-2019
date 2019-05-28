@@ -15,8 +15,12 @@ describe('When rendering', () => {
   it('should post comments', async () => {
     
     const url = app.getUrl('/comments');
-    const response = await axios.post(url, {text: 'Kukuruku', author: 'Lena'});
+    let newComment = {text: 'Kukuruku', author: 'Lena'};
+    const post = await axios.post(url, newComment);
+    expect(post.data).toEqual('');
     
-    expect(response.data).toEqual('');
+    const response = await axios.get(url);
+    expect(response.data).toContainEqual(newComment);
+    
   });
 });
