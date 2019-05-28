@@ -1,9 +1,16 @@
 import axios from 'axios';
 import {addCommentsServiceStub, TEST_COMMENTS} from "../src/mock/RPCMock";
 
+const {AmbassadorTestkit} = require('@wix/ambassador-testkit');
+
 describe('When rendering', () => {
-  const ambassadorTestkit = addCommentsServiceStub();
+  const ambassadorTestkit = new AmbassadorTestkit();
   ambassadorTestkit.beforeAndAfter();
+  
+  beforeEach(() => {
+    addCommentsServiceStub(ambassadorTestkit);
+  });
+  
   afterEach(() => ambassadorTestkit.reset());
   
   it('should return comments', async () => {

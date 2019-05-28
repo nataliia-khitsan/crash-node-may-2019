@@ -1,4 +1,3 @@
-const {AmbassadorTestkit} = require('@wix/ambassador-testkit');
 const {
   NodeWorkshopScalaApp,
 } = require('@wix/ambassador-node-workshop-scala-app/rpc');
@@ -6,8 +5,7 @@ const {
 const TEST_COMMENTS = [{author: 'Ronen', text: 'lalala'}];
 const TEST_ID = 'eb6f81e2-4b03-4d6e-955f-a1b4abf6bbcf';
 
-const addCommentsServiceStub = function () {
-  const ambassadorTestkit = new AmbassadorTestkit();
+const addCommentsServiceStub = function (ambassadorTestkit) {
   
   const commentsServiceStub = ambassadorTestkit.createStub(
     NodeWorkshopScalaApp,
